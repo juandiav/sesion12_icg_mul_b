@@ -1,0 +1,34 @@
+﻿<canvas id='tablero' width=500 height=450></canvas>
+<script>
+function sumaTransl(v1,v2){
+var s = [];
+for (i=0; i<cd.length; i+=2){
+s[i]=(cd[i
+
+return s;
+}
+
+function polygon(cd, colorBorde, colorRelleno, grosorLinea){
+ctx.beginPath();
+ctx.strokeStyle = colorBorde;
+ctx.fillStyle = colorRelleno;
+ctx.lineWidth = grosorLinea;
+ctx.moveTo(cd[0],cd[1]);
+for (var i=2; i< cd.length; i+=2)
+ctx.lineTo(cd[i], cd[i+1]);
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+}
+
+var c = document.getElementById('tablero')
+var ctx = c.getContext('2d')
+
+var letra_e =[0,0,0,50,40,50,40,40,10,40,10,30,20,30,20,20,10,20,10,10,40,10,40,0];
+var vt = [60, 90];
+var letra_e_trasladada = sumaTransl(letra_e, vt)
+
+polygon(letra_e, 'red', 'red');
+polygon(letra_e_transladada, 'red', 'red');
+</script>
+
