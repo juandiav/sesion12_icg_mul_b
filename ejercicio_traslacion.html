@@ -2,9 +2,9 @@
 <script>
 function sumaTransl(v1,v2){
 var s = [];
-for (i=0; i<cd.length; i+=2){
-s[i]=(cd[i
-
+for (var i=0; i<v1.length; i++){
+s[i]=v1[i] + v2[i % 2== 0 ? 0 : 1];
+}
 return s;
 }
 
