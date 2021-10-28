@@ -1,21 +1,23 @@
 ﻿<canvas id='tablero' width=500 height=450></canvas>
 <script>
-function sumaTransl(v1,v2){
+
+function sumaTran(a,b){
 var s = [];
-for (var i=0; i<v1.length; i++){
-s[i]=v1[i] + v2[i % 2== 0 ? 0 : 1];
+for (i=0; i<a.length; i+=2){
+s[i]=(a[i]+b[0])
+s[i+1]=(a[i+1]+b[1])
 }
 return s;
 }
 
-function polygon(cd, colorBorde, colorRelleno, grosorLinea){
+function polygon(a, colorBorde, colorRelleno, grosorLinea){
 ctx.beginPath();
 ctx.strokeStyle = colorBorde;
 ctx.fillStyle = colorRelleno;
 ctx.lineWidth = grosorLinea;
-ctx.moveTo(cd[0],cd[1]);
-for (var i=2; i< cd.length; i+=2)
-ctx.lineTo(cd[i], cd[i+1]);
+ctx.moveTo(a[0],a[1]);
+for (var i=2; i< a.length; i+=2)
+ctx.lineTo(a[i], a[i+1]);
 ctx.closePath();
 ctx.stroke();
 ctx.fill();
@@ -26,9 +28,11 @@ var ctx = c.getContext('2d')
 
 var letra_e =[0,0,0,50,40,50,40,40,10,40,10,30,20,30,20,20,10,20,10,10,40,10,40,0];
 var vt = [60, 90];
-var letra_e_trasladada = sumaTransl(letra_e, vt)
+var letraTrans = sumaTran(letra_e, vt);
 
-polygon(letra_e, 'red', 'red');
-polygon(letra_e_transladada, 'red', 'red');
+polygon(letra_e, 'blue', 'red',3)
+
+polygon(letraTrans, 'red', 'blue',3)
+
 </script>
 
